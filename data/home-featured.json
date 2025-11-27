@@ -1,0 +1,42 @@
+{
+  "items": [
+    {
+      "name": "  Extract",
+      "image": "images/Amla-dry-extract.png",
+      "link": "category.html?cat=herbal-dry-extract&s=Amla",
+      "tagline": "Standardized • COA with every batch"
+    },
+    {
+      "name": "Basil Oil",
+      "image": "images/Green-tea-dry-extract-b.png",
+      "link": "category.html?cat=essential-oils&s=Basil",
+      "tagline": "GMP • ISO • FSSAI"
+    },
+    {
+      "name": "Papaya Liquid Extract",
+      "image": "images/slide2.jpg",
+      "link": "category.html?cat=herbal-liquid-extract&s=Papaya",
+      "tagline": "Made in India • Skin & Hair"
+    },
+    {
+      "name": "Olive Oil",
+      "image": "images/calendula-oil.png",
+      "link": "category.html?cat=carrier-oils&s=Olive",
+      "tagline": "Cosmetic Grade • Traceable"
+    },
+    {
+      "name": "Cucumber Water",
+      "image": "images/slide3.jpg",
+      "link": "category.html?cat=floral-water&s=Cucumber",
+      "tagline": "Cooling • Gentle • Fresh"
+    }
+  ],
+  "options": {
+    "autoplayMs": 3000,
+    "pauseOnHover": true,
+    "infinite": true,
+    "showArrows": true,
+    "showDots": true,
+    "perView": { "desktop": 4, "tablet": 3, "mobile": 1 }
+  }
+}

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Products — Vaible Herbal</title>
+  <link rel="stylesheet" href="css/style.css"/>
+
+  <!-- Page-specific helpers (keeps your main CSS untouched) -->
+  <style>
+    .vh-cat-head{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:18px 0}
+    .vh-cat-title{margin:0 0 6px 0;font-size:clamp(22px,3vw,30px);color:#143626}
+    .vh-az{display:flex;gap:6px;flex-wrap:wrap}
+    .vh-az a{display:inline-block;padding:6px 10px;border:1px solid #dbe7df;border-radius:8px;font:700 12px/1 system-ui;color:#174631;text-decoration:none;background:#f6fbf8}
+    .vh-az a.is-active{background:#e2f2e9}
+    .vh-cat-search{margin-left:auto}
+    .vh-cat-search input{padding:8px 10px;border:1px solid #cfe4d6;border-radius:10px;min-width:220px}
+    .vh-prod-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    @media (max-width:900px){.vh-prod-grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:560px){.vh-prod-grid{grid-template-columns:1fr}}
+    .vh-card-mini{display:flex;flex-direction:column;background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:16px;overflow:hidden;box-shadow:0 8px 18px rgba(0,0,0,.06)}
+    .vh-card-mini__img{padding-top:62%;background:#eaf3ed center/cover no-repeat}
+    .vh-card-mini__body{padding:12px 12px 14px}
+    .vh-card-mini h3{margin:6px 0 6px;font-size:16px;color:#123628}
+    .vh-card-mini p{margin:0 0 10px;color:#375346;font-size:13px}
+    .vh-prod-actions{display:flex;gap:10px;flex-wrap:wrap}
+    .vh-empty{padding:18px;border:2px dashed #d9ecdf;border-radius:14px;background:#f8fbf9;text-align:center;color:#174631}
+  </style>
+  <style>
+  /* Card discoverability */
+  .vh-card-mini__img{position:relative;background:#eaf3ed center/contain no-repeat}
+  
+</style>
+
+</head>
+<body>
+   <!-- Page Loader (Vaible Herbal) -->
+<div id="vhLoader" class="vh-loader is-active" aria-live="polite" aria-label="Loading">
+  <div class="vh-loader__inner">
+    <img class="vh-loader__logo" src="images/vaible-herbal-logo.png" alt="Vaible Herbal" width="420" height="120">
+  </div>
+</div>
+
+
+
+  <!-- ===== TOPBAR ===== -->
+  <div class="vh-topbar">
+    <div class="vh-topbar__inner">
+      <div class="vh-topbar__left">
+        <span class="vh-ico mail" aria-hidden="true"></span>
+        <a href="mailto:Sales@Vaibleherbal.com">Sales@Vaibleherbal.com</a>
+        <span class="vh-sep">|</span>
+        <span class="vh-ico phone" aria-hidden="true"></span>
+        <a href="tel:+919911154497">+91 9911154497</a>
+      </div>
+      <div class="vh-topbar__notice" id="vhNotice">
+        Get COA, specs &amp; best price within 24 hours
+      </div>
+      <div class="vh-topbar__right">
+        <a href="#" class="vh-ico social fb" aria-label="Facebook"></a>
+        <a href="#" class="vh-ico social ig" aria-label="Instagram"></a>
+        <a href="#" class="vh-ico social pt" aria-label="Pinterest"></a>
+        <a href="#" class="vh-ico social li" aria-label="LinkedIn"></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== HEADER / NAV ===== -->
+  <header class="vh-header">
+    <div class="vh-header__inner">
+      <a class="vh-logo" href="index.html" aria-label="Vaible Herbal">
+        <img src="images/vaible-herbal-logo.png" alt="Vaible Herbal logo" loading="eager" decoding="async">
+      </a>
+      <button class="vh-nav-toggle" aria-expanded="false" aria-controls="vhNav" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="vhNav" class="vh-nav" role="navigation">
+        <ul class="vh-menu">
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="about.html">ABOUT US</a></li>
+          <li><a class="is-active" href="products.html">PRODUCTS</a></li>
+          <li><a href="innovations.html">INNOVATIONS</a></li>
+          <li><a href="resources.html">RESOURCES</a></li>
+          <li><a href="contact.html">CONTACT US</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== CATEGORY HERO ===== -->
+  <section class="vh-page-hero vh-page-hero--products" aria-label="Category">
+    <div class="vh-container vh-page-hero__inner">
+      <nav class="vh-breadcrumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a> <span>/</span>
+        <a href="products.html">Products</a> <span>/</span>
+        <span id="crumbCat" aria-current="page">Category</span>
+      </nav>
+      <h1 id="catTitle">Category</h1>
+      <p class="vh-page-hero__tag" id="catTag">Standardized herbal extracts</p>
+    </div>
+  </section>
+
+  <!-- ===== A–Z + SEARCH ===== -->
+  <section class="vh-azwrap">
+    <div class="vh-container">
+      <div class="vh-cat-head">
+        <div>
+          <h2 class="vh-cat-title" id="catHeading">Items</h2>
+          <div class="vh-az__tip" id="vhTip">
+  💡 Tip: Click <strong>Quick View</strong> or the product image to open the popup with details.
+</div>
+
+          <div class="vh-az" id="azBar"></div>
+        </div>
+        <div class="vh-cat-search">
+          <input id="searchBox" class="vh-az__search" type="search" placeholder="Search within this category… (e.g., Peppermint)">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CATEGORY LIST ROOT ===== -->
+  <section class="vh-container">
+    <div id="vhCategoryRoot" class="vh-cat">
+      <div id="grid" class="vh-prod-grid"></div>
+      <div id="empty" class="vh-empty" style="display:none">No items match your filter.</div>
+    </div>
+  </section>
+
+  <!-- ===== FLOATING CTA ===== -->
+  <aside class="vh-cta" aria-label="Quick enquiry">
+    <div class="vh-cta__note">Get COA, specs &amp; best price within 24 hours</div>
+    <a class="vh-cta__btn" id="vhEnquiryBtn" href="mailto:Sales@Vaibleherbal.com" target="_blank" rel="noopener">Enquiry&nbsp;Now</a>
+    <a class="vh-cta__wa" href="https://wa.me/919911154497?text=Hello%20Vaible%20Herbal%2C%20please%20share%20COA%2C%20specs%20and%20best%20price." target="_blank" rel="noopener">
+      <img class="vh-cta__wa-ico" src="images/whatsapp.png" alt="" width="16" height="16"> WhatsApp
+    </a>
+  </aside>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="vh-footer">
+    <div class="vh-container vh-footer__inner">
+      <div class="vh-footer__legal">© <span id="year"></span> Vaible Herbal. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+
+  <!-- ===== Quick-View Modal (products) ===== -->
+<style>
+  .vh-modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.55);z-index:9999;padding:16px}
+  .vh-modal.is-open{display:flex}
+  .vh-modal__card{max-width:900px;width:100%;background:#fff;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.35);overflow:hidden}
+  .vh-modal__head{display:flex;gap:16px;padding:16px;border-bottom:1px solid rgba(0,0,0,.06)}
+  .vh-modal__img{flex:0 0 360px;height:260px;background:#eaf3ed center/cover no-repeat;border-radius:12px}
+  .vh-modal__main{flex:1}
+  .vh-modal__main h3{margin:0 0 6px}
+  .vh-modal__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 16px;margin:12px 0}
+  .vh-kv{font-size:14px;color:#123628}
+  .vh-kv b{color:#143626}
+  .vh-modal__foot{display:flex;gap:10px;padding:14px 16px;border-top:1px solid rgba(0,0,0,.06);justify-content:flex-end;background:#fafdfb}
+  .vh-modal__close{position:absolute;top:10px;right:12px;width:40px;height:40px;border-radius:50%;border:0;background:#fff;font-size:22px;line-height:40px;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,.25)}
+  @media (max-width:720px){
+    .vh-modal__head{flex-direction:column}
+    .vh-modal__img{width:100%;height:200px}
+    .vh-modal__grid{grid-template-columns:1fr}
+  }
+</style>
+
+<div id="vhModal" class="vh-modal" role="dialog" aria-modal="true" aria-labelledby="vhModalTitle" aria-hidden="true">
+  <div class="vh-modal__card">
+    <button class="vh-modal__close" id="vhModalClose" aria-label="Close">×</button>
+    <div class="vh-modal__head">
+      <div id="vhModalImg" class="vh-modal__img"></div>
+      <div class="vh-modal__main">
+        <h3 id="vhModalTitle">Product</h3>
+        <p id="vhModalDesc" style="margin:6px 0 8px;color:#2b4438"></p>
+        <div class="vh-modal__grid" id="vhModalGrid"><!-- key/values go here --></div>
+      </div>
+    </div>
+    <div class="vh-modal__foot">
+      <a id="vhModalEnq" class="vh-btn" href="#">Enquire</a>
+      <a id="vhModalWa" class="vh-btn wa" href="#" target="_blank">WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<!-- Quick-View logic (must load after catalog.js) -->
+<script src="js/quickview.js" defer></script>
+
+  <script src="js/script.js" defer></script>
+  <!-- Catalog loader (renders items based on ?cat=... from data/products.json) -->
+  <script src="js/catalog.js" defer></script>
+  <script src="js/loader.js" defer></script>
+
+</body>
+</html>

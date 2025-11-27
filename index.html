@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vaible Herbal — Indian Origin. Global Standards.</title>
+
+  <!-- Leaflet (map) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<!-- Page Loader (Vaible Herbal) -->
+<div id="vhLoader" class="vh-loader is-active" aria-live="polite" aria-label="Loading">
+  <div class="vh-loader__inner">
+    <img class="vh-loader__logo" src="images/vaible-herbal-logo.png" alt="Vaible Herbal" width="420" height="120">
+  </div>
+</div>
+
+
+  <!-- ===== TOPBAR ===== -->
+
+ <!-- ===== TOPBAR ===== -->
+<div class="vh-topbar">
+  <div class="vh-topbar__inner">
+    <div class="vh-topbar__left">
+      <span class="vh-ico mail" aria-hidden="true"></span>
+      <a href="mailto:Sales@Vaibleherbal.com">Sales@Vaibleherbal.com</a>
+      <span class="vh-sep" aria-hidden="true">|</span>
+      <span class="vh-ico phone" aria-hidden="true"></span>
+      <a href="tel:+919911154497">+91 9911154497</a>
+    </div>
+    <div class="vh-topbar__notice" id="vhNotice">
+      Now shipping from India • USA • EU | Ask us for COA &amp; samples this week
+    </div>
+    <div class="vh-topbar__right">
+      <a href="#" class="vh-ico social fb" aria-label="Facebook"></a>
+      <a href="#" class="vh-ico social ig" aria-label="Instagram"></a>
+      <a href="#" class="vh-ico social pt" aria-label="Pinterest"></a>
+      <a href="#" class="vh-ico social li" aria-label="LinkedIn"></a>
+
+      <!-- 🌍 Language Dropdown -->
+      <div id="google_translate_element" class="lang-select"></div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- ===== HEADER / NAV ===== -->
+  <header class="vh-header" role="banner">
+    <div class="vh-header__inner">
+      <a class="vh-logo" href="index.html" aria-label="Vaible Herbal">
+        <picture>
+          <source type="image/png" srcset="images/vaible-herbal-logo.png">
+          <img src="images/vaible-herbal-logo.jpg" alt="Vaible Herbal logo" loading="eager" decoding="async">
+        </picture>
+      </a>
+      <button class="vh-nav-toggle" aria-expanded="false" aria-controls="vhNav" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="vhNav" class="vh-nav" role="navigation">
+        <ul class="vh-menu">
+          <li><a class="is-active" href="index.html">HOME</a></li>
+          <li><a href="about.html">ABOUT US</a></li>
+          <li><a href="products.html">PRODUCTS</a></li>
+          <li><a href="innovations.html">INNOVATIONS</a></li>
+          <li><a href="resources.html">RESOURCES</a></li>
+          <li><a href="contact.html">CONTACT US</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== HERO / SLIDER ===== -->
+  <section class="vh-hero" aria-label="Featured images">
+    <!-- Slides (captions from data-attributes) -->
+    <div class="vh-hero__slide is-active"
+         style="background-image:url('images/slide1.jpg')"
+         data-title="Nature to Nutraceuticals"
+         data-subtitle="Premium herbal extracts for Nutraceuticals · Pharmaceuticals · Cosmetics · Ayurveda"></div>
+
+    <div class="vh-hero__slide"
+         style="background-image:url('images/slide2.jpg')"
+         data-title="Quality You Can Trust"
+         data-subtitle="GMP • ISO • FSSAI — COA & specs with every batch"></div>
+
+    <div class="vh-hero__slide"
+         style="background-image:url('images/slide3.jpg')"
+         data-title="Consistent, Standardized Actives"
+         data-subtitle="Tighter specs · Reliable supply · Rapid dispatch"></div>
+
+    <div class="vh-hero__slide"
+         style="background-image:url('images/slide4.jpg')"
+         data-title="Global Shipping"
+         data-subtitle="India • USA • EU — Door-to-door logistics support"></div>
+
+    <!-- Soft overlay -->
+    <div class="vh-hero__overlay"></div>
+
+    <!-- Dynamic captions -->
+    <div class="vh-hero__content vh-container">
+      <h1 id="vhCaptionTitle">Nature to Nutraceuticals</h1>
+      <p id="vhCaptionSubtitle">Premium herbal extracts for Nutraceuticals · Pharmaceuticals · Cosmetics · Ayurveda</p>
+    </div>
+
+    <!-- Arrows -->
+    <button class="vh-hero__nav prev" aria-label="Previous slide">‹</button>
+    <button class="vh-hero__nav next" aria-label="Next slide">›</button>
+
+    <!-- Dots -->
+    <div class="vh-hero__dots" aria-label="Slide indicators"></div>
+  </section>
+
+  <!-- ===== ACHIEVEMENTS ===== -->
+  <section id="achievements" class="vh-achievements" aria-label="Company achievements">
+    <div class="vh-achievements__overlay" aria-hidden="true"></div>
+
+    <div class="vh-container vh-achievements__inner">
+      <header class="vh-achievements__head">
+        <h2>Our Achievements</h2>
+        <p>Indian Origin. Global Standards.</p>
+      </header>
+
+      <!-- Counters -->
+      <div class="vh-counters" id="vhCounters">
+        <div class="vh-counter">
+          <div class="vh-counter__num" data-target="28" data-suffix="+">0</div>
+          <div class="vh-counter__label">Years of Expertise</div>
+        </div>
+        <div class="vh-counter">
+          <div class="vh-counter__num" data-target="1000" data-suffix="+">0</div>
+          <div class="vh-counter__label">SKUs in Portfolio</div>
+        </div>
+        <div class="vh-counter">
+          <div class="vh-counter__num" data-target="5">0</div>
+          <div class="vh-counter__label">Countries Served</div>
+        </div>
+        <div class="vh-counter">
+          <div class="vh-counter__num" data-target="1000" data-suffix="+">0</div>
+          <div class="vh-counter__label">COAs Delivered</div>
+        </div>
+        <div class="vh-counter">
+          <div class="vh-counter__num" data-target="100" data-suffix="+">0</div>
+          <div class="vh-counter__label">Happy Clients</div>
+        </div>
+      </div>
+
+      <!-- Certificates -->
+      <div class="vh-certs">
+        <a class="vh-cert" href="images/ISO Certificate.jpg">
+          <figure>
+            <img src="images/ISO Certificate.jpg" alt="ISO Certificate">
+            <figcaption>ISO Certificate</figcaption>
+          </figure>
+        </a>
+        <a class="vh-cert" href="images/Organic Certificate.jpg">
+          <figure>
+            <img src="images/Organic Certificate.jpg" alt="Organic Certificate">
+            <figcaption>Organic Certificate</figcaption>
+          </figure>
+        </a>
+        <a class="vh-cert" href="images/WHO Certificate.jpg">
+          <figure>
+            <img src="images/WHO Certificate.jpg" alt="WHO Certificate">
+            <figcaption>WHO Certificate</figcaption>
+          </figure>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox for certificates -->
+  <div id="vhLightbox" class="vh-lightbox" hidden>
+    <button class="vh-lightbox__close" aria-label="Close">×</button>
+    <img id="vhLightboxImg" alt="">
+  </div>
+
+  <!-- ===== BEST PRODUCTS (Carousel) ===== -->
+<section class="vh-container vh-best">
+  <h2 class="vh-best__title">Best Products</h2>
+  <p class="vh-best__sub">Flagship extracts curated for global buyers.</p>
+
+  <div class="vh-best__viewport" id="bestViewport" aria-live="polite">
+    <div class="vh-best__track" id="bestTrack" style="transform: translateX(0);"></div>
+
+    <!-- Arrows -->
+    <button class="vh-best__nav vh-best__nav--prev" id="bestPrev" aria-label="Previous">
+      ‹
+    </button>
+    <button class="vh-best__nav vh-best__nav--next" id="bestNext" aria-label="Next">
+      ›
+    </button>
+  </div>
+
+  <!-- Dots -->
+  <div class="vh-best__dots" id="bestDots" role="tablist" aria-label="Slider dots"></div>
+</section>
+
+<!-- Scripts (keep order; loader.js stays last on page) -->
+<script src="js/home-slider.js" defer></script>
+
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section id="testimonials" class="vh-testis" aria-label="Customer testimonials">
+    <div class="vh-container">
+      <header class="vh-testis__head">
+        <h2>Trusted by Buyers Across the US, EU &amp; Middle East</h2>
+        <p>Indian Origin. Global Standards. GMP • ISO • FSSAI documentation with every shipment.</p>
+        <div class="vh-testis__regions">
+          <span class="vh-chip">USA</span>
+          <span class="vh-chip">European Union</span>
+          <span class="vh-chip">Middle East</span>
+          <span class="vh-chip">APAC</span>
+        </div>
+      </header>
+
+      <div id="vhTestis" class="vh-testis__wrap">
+        <div class="vh-testis__viewport" aria-live="polite">
+          <div class="vh-testis__track">
+            <article class="vh-testis__card" data-rating="5">
+              <div class="vh-testis__top">
+                <div class="vh-testis__avatar" style="--avatar:url('images/testimonials/client1.jpg')"></div>
+                <div class="vh-testis__meta">
+                  <strong>Michael R.</strong>
+                  <span>Purchasing Manager · USA 🇺🇸</span>
+                  <em class="vh-verify">Verified Buyer</em>
+                </div>
+              </div>
+              <p class="vh-testis__quote">
+                “COA turnaround and dispatch were excellent. Specs matched every shipment and the packaging was export-ready. Exactly what we need for nutraceutical SKUs.”
+              </p>
+              <div class="vh-testis__rating" aria-label="5 out of 5 stars">★★★★★</div>
+            </article>
+
+            <article class="vh-testis__card" data-rating="5">
+              <div class="vh-testis__top">
+                <div class="vh-testis__avatar" style="--avatar:url('images/testimonials/client2.jpg')"></div>
+                <div class="vh-testis__meta">
+                  <strong>Elena K.</strong>
+                  <span>Quality Lead · Germany 🇩🇪</span>
+                  <em class="vh-verify">Verified Buyer</em>
+                </div>
+              </div>
+              <p class="vh-testis__quote">
+                “Documentation was clean—GMP, ISO, and full traceability. Batches were consistent and communication was clear. Reliable partner from India.”
+              </p>
+              <div class="vh-testis__rating" aria-label="5 out of 5 stars">★★★★★</div>
+            </article>
+
+            <article class="vh-testis__card" data-rating="4">
+              <div class="vh-testis__top">
+                <div class="vh-testis__avatar" style="--avatar:url('images/testimonials/client3.jpg')"></div>
+                <div class="vh-testis__meta">
+                  <strong>Rahul P.</strong>
+                  <span>Procurement · UAE 🇦🇪</span>
+                  <em class="vh-verify">Verified Buyer</em>
+                </div>           
+              </div>
+              <p class="vh-testis__quote">
+                “Lead times and pricing were competitive. COA &amp; samples arrived fast, and we got smooth export support. Will expand more SKUs with Vaible.”
+              </p>
+              <div class="vh-testis__rating" aria-label="4 out of 5 stars">★★★★☆</div>
+            </article>
+
+            <article class="vh-testis__card" data-rating="5">
+              <div class="vh-testis__top">
+                <div class="vh-testis__avatar" style="--avatar:url('images/testimonials/client4.jpg')"></div>
+                <div class="vh-testis__meta">
+                  <strong>Sofia L.</strong>
+                  <span>Brand Owner · Spain 🇪🇸</span>
+                  <em class="vh-verify">Verified Buyer</em>
+                </div>
+              </div>
+              <p class="vh-testis__quote">
+                “Product quality and customer care were outstanding. Clear specifications and consistent actives helped us scale our formulations quickly.”
+              </p>
+              <div class="vh-testis__rating" aria-label="5 out of 5 stars">★★★★★</div>
+            </article>
+
+            <article class="vh-testis__card" data-rating="5">
+              <div class="vh-testis__top">
+                <div class="vh-testis__avatar" style="--avatar:url('images/testimonials/client5.jpg')"></div>
+                <div class="vh-testis__meta">
+                  <strong>Akira M.</strong>
+                  <span>R&amp;D · Japan 🇯🇵</span>
+                  <em class="vh-verify">Verified Buyer</em>
+                </div>
+              </div>
+              <p class="vh-testis__quote">
+                “Samples arrived on time, data matched COA, and scale-up batches were reliable. Great technical responsiveness from the team.”
+              </p>
+              <div class="vh-testis__rating" aria-label="5 out of 5 stars">★★★★★</div>
+            </article>
+          </div>
+        </div>
+
+        <button class="vh-testis__nav prev" aria-label="Previous testimonials">‹</button>
+        <button class="vh-testis__nav next" aria-label="Next testimonials">›</button>
+        <div class="vh-testis__dots" aria-label="Testimonials pages"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COUNTRIES WE SERVE (Map) ===== -->
+  <section id="service-map" class="vh-map" aria-label="Countries we serve">
+    <div class="vh-container">
+      <header class="vh-map__head">
+        <h2>Countries We Serve</h2>
+        <p>Supplying standardized herbal extracts to global brands.</p>
+      </header>
+    </div>
+
+    <div id="vhMap" class="vh-map__canvas" role="img"
+         aria-label="World map with red pins for countries we serve"></div>
+
+    <div class="vh-container">
+      <ul id="vhMapList" class="vh-map__list" aria-label="List of countries shown on the map"></ul>
+    </div>
+  </section>
+
+  <!-- ===== FLOATING ENQUIRY CTA ===== -->
+  <aside class="vh-cta" aria-label="Quick enquiry">
+    <div class="vh-cta__note">Get COA, specs &amp; best price within 24 hours</div>
+    <a class="vh-cta__btn" href="mailto:Sales@Vaibleherbal.com?subject=Enquiry%20-%20Vaible%20Herbal&body=Hi%20Team%2C%0A%0APlease%20share%20COA%2Fspecs%20and%20pricing%20for%3A%20%5BProduct%20Name%5D%0AQty%3A%20%5B%5D%0ADestination%3A%20%5B%5D%0A%0AThanks." target="_blank" rel="noopener">
+      Enquiry&nbsp;Now
+    </a>
+    <a class="vh-cta__wa" href="https://wa.me/919911154497?text=Hello%20Vaible%20Herbal%2C%20please%20share%20COA%2C%20specs%20and%20best%20price%20for%20%5BProduct%20Name%5D.%20Qty%3A%20%5B%5D.%20Destination%3A%20%5B%5D." target="_blank" rel="noopener">
+      <img class="vh-cta__wa-ico" src="images/whatsapp.png" alt="" width="16" height="16"> WhatsApp
+    </a>
+  </aside>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="vh-footer">
+    <div class="vh-container vh-footer__inner">
+      <div class="vh-footer__legal">© <span id="year"></span> Vaible Herbal. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+  <script src="js/script.js" defer></script>
+  <script src="js/loader.js" defer></script>
+
+  <!-- 🌍 Google Translate (single, clean version) -->
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement(
+        {
+          pageLanguage: 'en',
+          includedLanguages: 'en,fr,de,es,it,pt,ru,ar,hi,zh-CN,ja,ko',
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        },
+        'google_translate_element'
+      );
+    }
+
+    // Style the internal Google Translate dropdown
+    function styleGoogleDropdown() {
+      const iframe = document.querySelector('iframe.goog-te-menu-frame.skiptranslate');
+      if (!iframe) {
+        setTimeout(styleGoogleDropdown, 500);
+        return;
+      }
+      const innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+      if (innerDoc) {
+        const select = innerDoc.querySelector('select');
+        if (select) {
+          select.style.width = '180px';
+          select.style.padding = '6px 10px';
+          select.style.border = '1px solid #2f5d34';
+          select.style.borderRadius = '4px';
+          select.style.background = '#fff';
+          select.style.color = '#333';
+          select.style.fontSize = '14px';
+        }
+      }
+    }
+
+    window.addEventListener('load', () => {
+      setTimeout(styleGoogleDropdown, 1500);
+    });
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <!-- Vaible Herbal Chatbot Widget -->
+  <div id="vh-chatbot">
+    <div id="vh-chat-window">
+      <div id="vh-chat-header">
+        <div class="vh-chat-brand">
+          <img
+            src="images/vaible-herbal-logo.png"
+            alt="Vaible Herbal Logo"
+            class="vh-chat-logo"
+          />
+          <div>
+            <div class="vh-chat-title">Vaible Herbal Assistant</div>
+            <div class="vh-chat-status">
+              <span class="vh-status-dot"></span> Online now
+            </div>
+          </div>
+        </div>
+
+        <div class="vh-header-right">
+          <select id="vh-lang-select" class="vh-lang-select">
+            <option value="English">EN</option>
+            <option value="Hindi">HI</option>
+            <option value="Arabic">AR</option>
+            <option value="French">FR</option>
+            <option value="Spanish">ES</option>
+            <option value="Chinese">ZH</option>
+            <option value="Swahili">SW</option>
+          </select>
+          <button id="vh-menu-btn" class="vh-menu-btn">⋮</button>
+          <span id="vh-chat-close">&times;</span>
+        </div>
+      </div>
+
+      <!-- menu dropdown -->
+      <div id="vh-menu" class="vh-menu">
+        <button type="button" id="vh-reset-chat">New chat</button>
+        <button type="button" id="vh-email-chat">Email transcript</button>
+      </div>
+
+      <div id="vh-chat-messages"></div>
+
+      <form id="vh-chat-form">
+        <input
+          id="vh-chat-input"
+          type="text"
+          placeholder="Type your question here..."
+          autocomplete="off"
+        />
+        <button type="submit">Send</button>
+      </form>
+    </div>
+
+    <div id="vh-chat-bubble">
+      💬
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const API_URL = 'https://vaible-chatbot.onrender.com/api/chat';
+
+      const bubble = document.getElementById('vh-chat-bubble');
+      const windowEl = document.getElementById('vh-chat-window');
+      const closeBtn = document.getElementById('vh-chat-close');
+      const form = document.getElementById('vh-chat-form');
+      const input = document.getElementById('vh-chat-input');
+      const messages = document.getElementById('vh-chat-messages');
+      const langSelect = document.getElementById('vh-lang-select');
+      const menuBtn = document.getElementById('vh-menu-btn');
+      const menuEl = document.getElementById('vh-menu');
+      const resetBtn = document.getElementById('vh-reset-chat');
+      const emailBtn = document.getElementById('vh-email-chat');
+
+      let currentLanguage = 'English';
+      let hasStarted = false;
+
+      // language dropdown
+      langSelect.addEventListener('change', () => {
+        currentLanguage = langSelect.value;
+      });
+
+      // menu toggle
+      menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menuEl.style.display = menuEl.style.display === 'flex' ? 'none' : 'flex';
+      });
+
+      document.addEventListener('click', () => {
+        menuEl.style.display = 'none';
+      });
+
+      menuEl.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
+
+      function appendMessage(text, type) {
+        const msg = document.createElement('div');
+        msg.className = 'vh-msg ' + (type === 'user' ? 'vh-msg-user' : 'vh-msg-bot');
+        msg.textContent = text;
+        messages.appendChild(msg);
+        messages.scrollTop = messages.scrollHeight;
+      }
+
+      function showTyping() {
+        const msg = document.createElement('div');
+        msg.className = 'vh-msg vh-msg-bot';
+        const dots = document.createElement('div');
+        dots.className = 'vh-typing';
+        dots.innerHTML =
+          '<span class="vh-typing-dot"></span><span class="vh-typing-dot"></span><span class="vh-typing-dot"></span>';
+        msg.appendChild(dots);
+        messages.appendChild(msg);
+        messages.scrollTop = messages.scrollHeight;
+        return msg;
+      }
+
+      function showQuickActions() {
+        if (document.getElementById('vh-quick-actions')) return;
+
+        const wrapper = document.createElement('div');
+        wrapper.id = 'vh-quick-actions';
+        wrapper.className = 'vh-quick-actions';
+
+        const options = [
+          {
+            label: 'View products',
+            text:
+              'Please show me your main product categories and what you manufacture.',
+          },
+          {
+            label: 'MOQ & samples',
+            text: 'What is your MOQ and do you provide product samples?',
+          },
+          {
+            label: 'Shipping & documents',
+            text:
+              'What export documents and shipping options do you provide for international orders?',
+          },
+        ];
+
+        options.forEach((opt) => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'vh-quick-btn';
+          btn.textContent = opt.label;
+          btn.addEventListener('click', () => {
+            handleQuickAction(opt.text);
+          });
+          wrapper.appendChild(btn);
+        });
+
+        messages.appendChild(wrapper);
+        messages.scrollTop = messages.scrollHeight;
+      }
+
+      function buildTranscript() {
+        const parts = [];
+
+        const dateDiv = messages.querySelector('.vh-date-divider span');
+        if (dateDiv) {
+          parts.push(`Date: ${dateDiv.textContent}`);
+          parts.push('');
+        }
+
+        messages.querySelectorAll('.vh-msg').forEach((msgEl) => {
+          const text = msgEl.textContent.trim();
+          if (!text) return;
+
+          if (msgEl.classList.contains('vh-msg-user')) {
+            parts.push(`Customer: ${text}`);
+          } else if (msgEl.classList.contains('vh-msg-bot')) {
+            parts.push(`Vaible Assistant: ${text}`);
+          }
+        });
+
+        return parts.join('\n');
+      }
+
+      async function sendToBot(text) {
+        appendMessage(text, 'user');
+        input.value = '';
+
+        const typingEl = showTyping();
+
+        try {
+          const res = await fetch(API_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              message: `Please answer in ${currentLanguage}. User message: ${text}`,
+            }),
+          });
+
+          const data = await res.json();
+          messages.removeChild(typingEl);
+
+          appendMessage(
+            data.reply || 'Sorry, something went wrong. Please try again later.',
+            'bot'
+          );
+        } catch (err) {
+          console.error(err);
+          messages.removeChild(typingEl);
+          appendMessage(
+            'Sorry, I could not connect right now. Please try again later.',
+            'bot'
+          );
+        }
+      }
+
+      async function handleQuickAction(text) {
+        const qa = document.getElementById('vh-quick-actions');
+        if (qa) qa.remove();
+        await sendToBot(text);
+      }
+
+      function startConversation() {
+        messages.innerHTML = '';
+
+        const dateDiv = document.createElement('div');
+        dateDiv.className = 'vh-date-divider';
+        const now = new Date();
+        const options = { day: '2-digit', month: 'short', year: 'numeric' };
+        dateDiv.innerHTML = `<span>${now.toLocaleDateString(undefined, options)}</span>`;
+        messages.appendChild(dateDiv);
+
+        appendMessage(
+          "Namaste! I am Vaible Herbal's virtual assistant. You can ask about products, MOQ, exports, COA, documentation, etc.",
+          'bot'
+        );
+        showQuickActions();
+
+        hasStarted = true;
+      }
+
+      // open/close chat
+      bubble.addEventListener('click', () => {
+        windowEl.style.display = 'flex';
+        bubble.style.display = 'none';
+
+        if (!hasStarted) {
+          startConversation();
+        }
+      });
+
+      closeBtn.addEventListener('click', () => {
+        windowEl.style.display = 'none';
+        bubble.style.display = 'flex';
+      });
+
+      // menu actions
+      resetBtn.addEventListener('click', () => {
+        startConversation();
+        menuEl.style.display = 'none';
+      });
+
+      emailBtn.addEventListener('click', () => {
+        const transcript = buildTranscript();
+        const subject = encodeURIComponent('Vaible Herbal chat transcript');
+        const body = encodeURIComponent(transcript || 'Conversation was empty.');
+        const mailto = `mailto:Sales@Vaibleherbal.com?subject=${subject}&body=${body}`;
+        window.location.href = mailto;
+        menuEl.style.display = 'none';
+      });
+
+      // form submit
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const text = input.value.trim();
+        if (!text) return;
+
+        await sendToBot(text);
+      });
+    })();
+  </script>
+
+</body>
+</html>
