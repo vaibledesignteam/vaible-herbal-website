@@ -362,7 +362,7 @@
       if (!iframe) {
         setTimeout(styleGoogleDropdown, 500);
         return;
-      }
+      } 
       const innerDoc = iframe.contentDocument || iframe.contentWindow.document;
       if (innerDoc) {
         const select = innerDoc.querySelector('select');
@@ -376,7 +376,7 @@
           select.style.fontSize = '14px';
         }
       }
-    }
+    }   
 
     window.addEventListener('load', () => {
       setTimeout(styleGoogleDropdown, 1500);
@@ -385,280 +385,304 @@
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
   <!-- Vaible Herbal Chatbot Widget -->
-  <div id="vh-chatbot">
-    <div id="vh-chat-window">
-      <div id="vh-chat-header">
-        <div class="vh-chat-brand">
-          <img
-            src="images/vaible-herbal-logo.png"
-            alt="Vaible Herbal Logo"
-            class="vh-chat-logo"
-          />
-          <div>
-            <div class="vh-chat-title">Vaible Herbal Assistant</div>
-            <div class="vh-chat-status">
-              <span class="vh-status-dot"></span> Online now
-            </div>
-          </div>
-        </div>
-
-        <div class="vh-header-right">
-          <select id="vh-lang-select" class="vh-lang-select">
-            <option value="English">EN</option>
-            <option value="Hindi">HI</option>
-            <option value="Arabic">AR</option>
-            <option value="French">FR</option>
-            <option value="Spanish">ES</option>
-            <option value="Chinese">ZH</option>
-            <option value="Swahili">SW</option>
-          </select>
-          <button id="vh-menu-btn" class="vh-menu-btn">⋮</button>
-          <span id="vh-chat-close">&times;</span>
-        </div>
+ <!-- Vaible Herbal Chatbot Widget -->
+<div id="vh-chatbot">
+  <div id="vh-chat-window">
+   <div id="vh-chat-header">
+  <div class="vh-chat-brand">
+    <img
+      src="images/vaible-herbal-logo.png"
+      alt="Vaible Herbal Logo"
+      class="vh-chat-logo"
+    />
+    <div>
+      <div class="vh-chat-title">Vaible Herbal Assistant</div>
+      <div class="vh-chat-status">
+        <span class="vh-status-dot"></span> Online now
       </div>
-
-      <!-- menu dropdown -->
-      <div id="vh-menu" class="vh-menu">
-        <button type="button" id="vh-reset-chat">New chat</button>
-        <button type="button" id="vh-email-chat">Email transcript</button>
-      </div>
-
-      <div id="vh-chat-messages"></div>
-
-      <form id="vh-chat-form">
-        <input
-          id="vh-chat-input"
-          type="text"
-          placeholder="Type your question here..."
-          autocomplete="off"
-        />
-        <button type="submit">Send</button>
-      </form>
-    </div>
-
-    <div id="vh-chat-bubble">
-      💬
     </div>
   </div>
 
-  <script>
-    (function () {
-      const API_URL = 'https://vaible-chatbot.onrender.com/api/chat';
+  <div class="vh-header-right">
+    <select id="vh-lang-select" class="vh-lang-select">
+      <option value="English">EN</option>
+      <option value="Hindi">HI</option>
+      <option value="Arabic">AR</option>
+      <option value="French">FR</option>
+      <option value="Spanish">ES</option>
+      <option value="Chinese">ZH</option>
+      <option value="Swahili">SW</option>
+    </select>
 
-      const bubble = document.getElementById('vh-chat-bubble');
-      const windowEl = document.getElementById('vh-chat-window');
-      const closeBtn = document.getElementById('vh-chat-close');
-      const form = document.getElementById('vh-chat-form');
-      const input = document.getElementById('vh-chat-input');
-      const messages = document.getElementById('vh-chat-messages');
-      const langSelect = document.getElementById('vh-lang-select');
-      const menuBtn = document.getElementById('vh-menu-btn');
-      const menuEl = document.getElementById('vh-menu');
-      const resetBtn = document.getElementById('vh-reset-chat');
-      const emailBtn = document.getElementById('vh-email-chat');
+    <button type="button" id="vh-reset-chat" class="vh-header-btn">
+      New Chat
+    </button>
 
-      let currentLanguage = 'English';
-      let hasStarted = false;
+    <button type="button" id="vh-email-chat" class="vh-header-btn">
+      Email Transcript
+    </button>
 
-      // language dropdown
-      langSelect.addEventListener('change', () => {
-        currentLanguage = langSelect.value;
-      });
+    <span id="vh-chat-close" class="vh-close-btn">&times;</span>
+  </div>
 
-      // menu toggle
-      menuBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        menuEl.style.display = menuEl.style.display === 'flex' ? 'none' : 'flex';
-      });
+    <div id="vh-chat-messages"></div>
 
-      document.addEventListener('click', () => {
-        menuEl.style.display = 'none';
-      });
+    <div id="vh-chat-form">
+      <input
+        id="vh-chat-input"
+        type="text"
+        placeholder="Type your question here..."
+        autocomplete="off"
+      />
+      <button type="button" id="vh-send-btn">Send</button>
+    </div>
+  </div>
 
-      menuEl.addEventListener('click', (e) => {
-        e.stopPropagation();
-      });
+  <div id="vh-chat-bubble">💬</div>
+</div>
 
-      function appendMessage(text, type) {
-        const msg = document.createElement('div');
-        msg.className = 'vh-msg ' + (type === 'user' ? 'vh-msg-user' : 'vh-msg-bot');
-        msg.textContent = text;
-        messages.appendChild(msg);
-        messages.scrollTop = messages.scrollHeight;
+<script>
+  (function () {
+    const API_URL = 'https://vaible-chatbot.onrender.com/api/chat';
+
+    const bubble = document.getElementById('vh-chat-bubble');
+    const windowEl = document.getElementById('vh-chat-window');
+    const closeBtn = document.getElementById('vh-chat-close');
+   const resetBtn = document.getElementById('vh-reset-chat');
+const emailBtn = document.getElementById('vh-email-chat');
+
+    const messages = document.getElementById('vh-chat-messages');
+    const input = document.getElementById('vh-chat-input');
+    const sendBtn = document.getElementById('vh-send-btn');
+    const langSelect = document.getElementById('vh-lang-select');
+
+    let currentLanguage = 'English';
+
+    langSelect.addEventListener('change', () => {
+      currentLanguage = langSelect.value;
+    });
+
+    // --- helpers ---
+
+    function appendMessage(text, type) {
+      const msg = document.createElement('div');
+      msg.className = 'vh-msg ' + (type === 'user' ? 'vh-msg-user' : 'vh-msg-bot');
+      msg.textContent = text;
+      messages.appendChild(msg);
+      messages.scrollTop = messages.scrollHeight;
+    }
+
+    function showTyping() {
+      const msg = document.createElement('div');
+      msg.className = 'vh-msg vh-msg-bot';
+      const dots = document.createElement('div');
+      dots.className = 'vh-typing';
+      dots.innerHTML =
+        '<span class="vh-typing-dot"></span><span class="vh-typing-dot"></span><span class="vh-typing-dot"></span>';
+      msg.appendChild(dots);
+      messages.appendChild(msg);
+      messages.scrollTop = messages.scrollHeight;
+      return msg;
+    }
+
+    function buildTranscript() {
+      const parts = [];
+
+      const dateDiv = messages.querySelector('.vh-date-divider span');
+      if (dateDiv) {
+        parts.push('Date: ' + dateDiv.textContent);
+        parts.push('');
       }
 
-      function showTyping() {
-        const msg = document.createElement('div');
-        msg.className = 'vh-msg vh-msg-bot';
-        const dots = document.createElement('div');
-        dots.className = 'vh-typing';
-        dots.innerHTML =
-          '<span class="vh-typing-dot"></span><span class="vh-typing-dot"></span><span class="vh-typing-dot"></span>';
-        msg.appendChild(dots);
-        messages.appendChild(msg);
-        messages.scrollTop = messages.scrollHeight;
-        return msg;
-      }
-
-      function showQuickActions() {
-        if (document.getElementById('vh-quick-actions')) return;
-
-        const wrapper = document.createElement('div');
-        wrapper.id = 'vh-quick-actions';
-        wrapper.className = 'vh-quick-actions';
-
-        const options = [
-          {
-            label: 'View products',
-            text:
-              'Please show me your main product categories and what you manufacture.',
-          },
-          {
-            label: 'MOQ & samples',
-            text: 'What is your MOQ and do you provide product samples?',
-          },
-          {
-            label: 'Shipping & documents',
-            text:
-              'What export documents and shipping options do you provide for international orders?',
-          },
-        ];
-
-        options.forEach((opt) => {
-          const btn = document.createElement('button');
-          btn.type = 'button';
-          btn.className = 'vh-quick-btn';
-          btn.textContent = opt.label;
-          btn.addEventListener('click', () => {
-            handleQuickAction(opt.text);
-          });
-          wrapper.appendChild(btn);
-        });
-
-        messages.appendChild(wrapper);
-        messages.scrollTop = messages.scrollHeight;
-      }
-
-      function buildTranscript() {
-        const parts = [];
-
-        const dateDiv = messages.querySelector('.vh-date-divider span');
-        if (dateDiv) {
-          parts.push(`Date: ${dateDiv.textContent}`);
-          parts.push('');
-        }
-
-        messages.querySelectorAll('.vh-msg').forEach((msgEl) => {
-          const text = msgEl.textContent.trim();
-          if (!text) return;
-
-          if (msgEl.classList.contains('vh-msg-user')) {
-            parts.push(`Customer: ${text}`);
-          } else if (msgEl.classList.contains('vh-msg-bot')) {
-            parts.push(`Vaible Assistant: ${text}`);
-          }
-        });
-
-        return parts.join('\n');
-      }
-
-      async function sendToBot(text) {
-        appendMessage(text, 'user');
-        input.value = '';
-
-        const typingEl = showTyping();
-
-        try {
-          const res = await fetch(API_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              message: `Please answer in ${currentLanguage}. User message: ${text}`,
-            }),
-          });
-
-          const data = await res.json();
-          messages.removeChild(typingEl);
-
-          appendMessage(
-            data.reply || 'Sorry, something went wrong. Please try again later.',
-            'bot'
-          );
-        } catch (err) {
-          console.error(err);
-          messages.removeChild(typingEl);
-          appendMessage(
-            'Sorry, I could not connect right now. Please try again later.',
-            'bot'
-          );
-        }
-      }
-
-      async function handleQuickAction(text) {
-        const qa = document.getElementById('vh-quick-actions');
-        if (qa) qa.remove();
-        await sendToBot(text);
-      }
-
-      function startConversation() {
-        messages.innerHTML = '';
-
-        const dateDiv = document.createElement('div');
-        dateDiv.className = 'vh-date-divider';
-        const now = new Date();
-        const options = { day: '2-digit', month: 'short', year: 'numeric' };
-        dateDiv.innerHTML = `<span>${now.toLocaleDateString(undefined, options)}</span>`;
-        messages.appendChild(dateDiv);
-
-        appendMessage(
-          "Namaste! I am Vaible Herbal's virtual assistant. You can ask about products, MOQ, exports, COA, documentation, etc.",
-          'bot'
-        );
-        showQuickActions();
-
-        hasStarted = true;
-      }
-
-      // open/close chat
-      bubble.addEventListener('click', () => {
-        windowEl.style.display = 'flex';
-        bubble.style.display = 'none';
-
-        if (!hasStarted) {
-          startConversation();
-        }
-      });
-
-      closeBtn.addEventListener('click', () => {
-        windowEl.style.display = 'none';
-        bubble.style.display = 'flex';
-      });
-
-      // menu actions
-      resetBtn.addEventListener('click', () => {
-        startConversation();
-        menuEl.style.display = 'none';
-      });
-
-      emailBtn.addEventListener('click', () => {
-        const transcript = buildTranscript();
-        const subject = encodeURIComponent('Vaible Herbal chat transcript');
-        const body = encodeURIComponent(transcript || 'Conversation was empty.');
-        const mailto = `mailto:Sales@Vaibleherbal.com?subject=${subject}&body=${body}`;
-        window.location.href = mailto;
-        menuEl.style.display = 'none';
-      });
-
-      // form submit
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const text = input.value.trim();
+      messages.querySelectorAll('.vh-msg').forEach((msgEl) => {
+        const text = msgEl.textContent.trim();
         if (!text) return;
 
-        await sendToBot(text);
+        if (msgEl.classList.contains('vh-msg-user')) {
+          parts.push('Customer: ' + text);
+        } else if (msgEl.classList.contains('vh-msg-bot')) {
+          parts.push('Vaible Assistant: ' + text);
+        }
       });
-    })();
-  </script>
+   
+      return parts.join('\n');
+    }
+
+    function showQuickActions() {
+      if (document.getElementById('vh-quick-actions')) return;
+
+      const wrapper = document.createElement('div');
+      wrapper.id = 'vh-quick-actions';
+      wrapper.className = 'vh-quick-actions';
+
+      const options = [
+        {
+          label: 'View products',
+          text:
+            'Please show me your main product categories and what you manufacture.',
+        },
+        {
+          label: 'MOQ & samples',
+          text: 'What is your MOQ and do you provide product samples?',
+        },
+        {
+          label: 'Shipping & documents',
+          text:
+            'What export documents and shipping options do you provide for international orders?',
+        },
+      ];
+
+      options.forEach((opt) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'vh-quick-btn';
+        btn.textContent = opt.label;
+        btn.addEventListener('click', () => handleQuickAction(opt.text));
+        wrapper.appendChild(btn);
+      });
+
+      messages.appendChild(wrapper);
+      messages.scrollTop = messages.scrollHeight;
+    }
+
+    async function handleQuickAction(text) {
+      const qa = document.getElementById('vh-quick-actions');
+      if (qa) qa.remove();
+
+      appendMessage(text, 'user');
+      const typingEl = showTyping();
+
+      try {
+        const res = await fetch(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            message: 'Please answer in ' + currentLanguage + '. User message: ' + text,
+          }),
+        });
+
+        const data = await res.json();
+        messages.removeChild(typingEl);
+        appendMessage(
+          data.reply || 'Sorry, something went wrong. Please try again later.',
+          'bot'
+        );
+      } catch (err) {
+        console.error(err);
+        messages.removeChild(typingEl);
+        appendMessage(
+          'Sorry, I could not connect right now. Please try again later.',
+          'bot'
+        ); 
+      }
+    }
+
+    function startConversation() {
+      messages.innerHTML = '';
+
+      const dateDiv = document.createElement('div');
+      dateDiv.className = 'vh-date-divider';
+      const now = new Date();
+      const options = { day: '2-digit', month: 'short', year: 'numeric' };
+      dateDiv.innerHTML = '<span>' + now.toLocaleDateString(undefined, options) + '</span>';
+      messages.appendChild(dateDiv);
+
+      appendMessage(
+        "Namaste! I am Vaible Herbal's virtual assistant. You can ask about products, MOQ, exports, COA, documentation, etc.",
+        'bot'
+      );
+
+      showQuickActions();
+    }
+
+    // --- open / close ---
+
+    bubble.addEventListener('click', () => {
+      windowEl.style.display = 'flex';
+      bubble.style.display = 'none';
+
+      if (!messages.dataset.welcomeShown) {
+        startConversation();
+        messages.dataset.welcomeShown = 'true';
+      }
+    });
+
+    closeBtn.addEventListener('click', () => {
+      windowEl.style.display = 'none';
+      bubble.style.display = 'flex';
+    });
+
+    // --- menu ---
+
+    resetBtn.addEventListener('click', () => {
+      startConversation();
+      messages.dataset.welcomeShown = 'true';
+    });
+
+    emailBtn.addEventListener('click', () => {
+      const transcript = buildTranscript();
+      const subject = encodeURIComponent('Vaible Herbal chat transcript');
+      const body = encodeURIComponent(transcript || 'Conversation was empty.');
+      const mailto =
+        'mailto:Sales@Vaibleherbal.com?subject=' + subject + '&body=' + body;
+      window.location.href = mailto;   
+    });
+  
+    // --- sending ---
+
+    async function handleSend() {
+      const text = input.value.trim();
+      if (!text) return;
+
+      appendMessage(text, 'user');
+      input.value = '';
+
+      const typingEl = showTyping();
+
+      try {
+        const res = await fetch(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            message: 'Please answer in ' + currentLanguage + '. User message: ' + text,
+          }),
+        });
+
+        const data = await res.json();
+        messages.removeChild(typingEl);
+
+        appendMessage(
+          data.reply || 'Sorry, something went wrong. Please try again later.',
+          'bot'
+        );
+      } catch (err) {
+        console.error(err);
+        messages.removeChild(typingEl);
+        appendMessage(
+          'Sorry, I could not connect right now. Please try again later.',
+          'bot'
+        );
+      }
+    }
+
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        handleSend();
+      }
+    });
+
+    sendBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      handleSend();
+    });
+
+    // initial state
+    windowEl.style.display = 'none';
+  })();
+</script>
+<script src="js/chatbot-embed.js"></script>
+
 
 </body>
 </html>

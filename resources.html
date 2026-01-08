@@ -8,13 +8,11 @@
 </head>
 <body>
   <!-- Page Loader (Vaible Herbal) -->
-<div id="vhLoader" class="vh-loader is-active" aria-live="polite" aria-label="Loading">
-  <div class="vh-loader__inner">
-    <img class="vh-loader__logo" src="images/vaible-herbal-logo.png" alt="Vaible Herbal" width="420" height="120">
+  <div id="vhLoader" class="vh-loader is-active" aria-live="polite" aria-label="Loading">
+    <div class="vh-loader__inner">
+      <img class="vh-loader__logo" src="images/vaible-herbal-logo.png" alt="Vaible Herbal" width="420" height="120">
+    </div>
   </div>
-</div>
-
-
 
   <div class="vh-topbar">
     <div class="vh-topbar__inner">
@@ -31,12 +29,12 @@
 
   <header class="vh-header">
     <div class="vh-header__inner">
-<a class="vh-logo" href="index.html" aria-label="Vaible Herbal">
-  <picture>
-    <source type="image/png" srcset="images/vaible-herbal-logo.png">
-    <img src="images/vaible-herbal-logo.jpg" alt="Vaible Herbal logo" loading="eager" decoding="async">
-  </picture>
-</a>
+      <a class="vh-logo" href="index.html" aria-label="Vaible Herbal">
+        <picture>
+          <source type="image/png" srcset="images/vaible-herbal-logo.png">
+          <img src="images/vaible-herbal-logo.jpg" alt="Vaible Herbal logo" loading="eager" decoding="async">
+        </picture>
+      </a>
 
       <nav id="vhNav" class="vh-nav">
         <ul class="vh-menu">
@@ -60,9 +58,224 @@
     </a>
   </aside>
 
+  <!-- Main -->
   <main class="vh-container" style="padding:32px 0 56px">
     <h1>Resources</h1>
-    <p>Host COAs, specsheets, whitepapers, brochures, blog posts, and certifications.</p>
+
+    <!-- Intro -->
+    <p class="vh-muted" style="max-width:980px; margin-top:10px">
+      Technical and regulatory resources for buyers, formulators, and compliance teams. Product-specific documentation
+      (COA, MOA, SDS, and specifications) is shared on request for vendor qualification, regulatory review, and
+      international shipments.
+    </p>
+
+    <!-- Regulatory Compliance Overview -->
+    <section class="vh-resource-section" style="max-width:980px">
+      <h2>Regulatory Compliance Overview (EU / US)</h2>
+
+      <div class="vh-resource-cards">
+        <article class="vh-resource-card">
+          <h3>Cosmetic Grade</h3>
+          <p class="vh-muted">
+            Suitable for use as raw materials in personal care and cosmetic formulations (topical applications),
+            subject to formulator validation and local regulatory requirements.
+          </p>
+          <ul>
+            <li>COA &amp; specifications</li>
+            <li>SDS (GHS format)</li>
+            <li>Allergen / IFRA information (where applicable)</li>
+          </ul>
+        </article>
+
+        <article class="vh-resource-card">
+          <h3>Nutraceutical Grade</h3>
+          <p class="vh-muted">
+            Suitable for dietary supplement manufacturing as a raw material. Final product compliance and claims remain
+            the responsibility of the finished goods manufacturer/importer.
+          </p>
+          <ul>
+            <li>COA with assay/potency (where applicable)</li>
+            <li>MOA / test methods overview</li>
+            <li>Microbiology, heavy metals &amp; contaminants data</li>
+          </ul>
+        </article>
+
+        <article class="vh-resource-card">
+          <h3>Food Grade</h3>
+          <p class="vh-muted">
+            Suitable for food and beverage applications as an ingredient/raw material for further processing.
+            Compliance with local food regulations is determined by the importer/manufacturer.
+          </p>
+          <ul>
+            <li>COA + microbiology (as applicable)</li>
+            <li>Allergen statement (on request)</li>
+            <li>Storage, shelf life &amp; traceability information</li>
+          </ul>
+        </article>
+      </div>
+
+      <p class="vh-muted" style="margin-top:14px">
+        <strong>Regulatory disclaimer:</strong> All products supplied by Vaible Herbal are intended for use as raw
+        materials for further manufacturing. Regulatory compliance and approval of the finished product is the
+        responsibility of the finished goods manufacturer and/or importer.
+      </p>
+    </section>
+
+    <!-- Certificates & Compliance -->
+    <section class="vh-resource-section" style="max-width:980px">
+      <h2>Certificates &amp; Compliance</h2>
+      <p class="vh-muted">
+        Below are sample formats/placeholders. You will upload your PDFs later and replace the links.
+      </p>
+
+      <div class="vh-resource-cards">
+        <div class="vh-resource-card">
+          <h3>Sample Documents (Upload Later)</h3>
+
+          <div class="vh-doc-list">
+            <a href="#" target="_blank" rel="noopener">MOA – Sample (PDF)</a><br>
+            <a href="#" target="_blank" rel="noopener">SDS / MSDS – Sample (GHS, PDF)</a><br>
+            <a href="#" target="_blank" rel="noopener">COA – Sample (PDF)</a><br>
+            <a href="#" target="_blank" rel="noopener">Specification Sheet – Sample (PDF)</a>
+          </div>
+
+          <p class="vh-muted" style="margin-top:10px">
+            Recommended folder: <code style="background:#f2f2f2; padding:2px 6px; border-radius:6px">/docs</code>
+          </p>
+        </div>
+
+        <div class="vh-resource-card">
+          <h3>Common Declarations (On Request)</h3>
+          <ul>
+            <li>Declaration of Naturality</li>
+            <li>Allergen Statement / IFRA (essential oils, where applicable)</li>
+            <li>Non-GMO statement (if applicable)</li>
+            <li>Vegan / Vegetarian statement (if applicable)</li>
+            <li>BSE/TSE statement (where relevant)</li>
+            <li>Residual solvent statement (where relevant)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Documentation Hub -->
+    <section class="vh-resource-section" style="max-width:980px">
+      <h2>Product Documentation Hub</h2>
+      <p class="vh-muted">
+        Documentation sets are typically provided based on category and intended application:
+      </p>
+
+      <div class="vh-resource-cards">
+        <article class="vh-resource-card">
+          <h3>Herbal Extracts</h3>
+          <ul>
+            <li>Specification Sheet</li>
+            <li>COA (assay, microbiology, heavy metals)</li>
+            <li>MOA (assay method reference)</li>
+            <li>Residual solvents (where applicable)</li>
+          </ul>
+        </article>
+
+        <article class="vh-resource-card">
+          <h3>Essential Oils</h3>
+          <ul>
+            <li>COA (organoleptic + physico-chemical)</li>
+            <li>GC/GC-FID profile (where applicable)</li>
+            <li>SDS (GHS format)</li>
+            <li>IFRA / allergens (where applicable)</li>
+          </ul>
+        </article>
+
+        <article class="vh-resource-card">
+          <h3>Carrier Oils &amp; Butters</h3>
+          <ul>
+            <li>COA (acid value, peroxide value etc.)</li>
+            <li>Specification Sheet</li>
+            <li>SDS (where applicable / requested)</li>
+            <li>Storage &amp; shelf life guidance</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Buyer FAQs -->
+    <section class="vh-resource-section" style="max-width:980px">
+      <h2>Buyer FAQs (International B2B)</h2>
+
+      <div class="vh-resource-card">
+        <ul style="margin:0; padding-left:18px; line-height:1.95">
+          <li><strong>MOQ &amp; lead time:</strong> Depends on product category and packaging format. Share your requirement and destination for best lead time.</li>
+          <li><strong>Samples:</strong> Available for buyer evaluation. Courier charges may apply based on destination.</li>
+          <li><strong>Shelf life &amp; storage:</strong> Provided per product. Store sealed in a cool, dry place away from direct sunlight.</li>
+          <li><strong>Documentation:</strong> COA and specifications are shared for each batch/lot. MOA and SDS are available on request.</li>
+          <li><strong>Private label / customization:</strong> Supported for select categories based on MOQ and packaging.</li>
+          <li><strong>Shipping:</strong> Export documentation support available (Invoice, packing list, COA, declarations as applicable).</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Technical Knowledge -->
+    <section class="vh-resource-section" style="max-width:980px">
+      <h2>Technical Knowledge</h2>
+
+      <div class="vh-resource-cards">
+        <article class="vh-resource-card">
+          <h3>COA vs Specification Sheet</h3>
+          <p class="vh-muted">
+            A specification sheet defines typical acceptance criteria and targets. A COA reports the actual batch results
+            against those criteria. International buyers typically review both during supplier qualification.
+          </p>
+        </article>
+
+        <article class="vh-resource-card">
+          <h3>Standardization &amp; Marker Compounds</h3>
+          <p class="vh-muted">
+            Standardized extracts are controlled to a defined marker compound or active profile to support consistency.
+            Marker compounds and assay methods are specified on COA/MOA where applicable.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Downloads -->
+    <section class="vh-resource-section" style="max-width:980px">
+      <h2>Downloads</h2>
+      <p class="vh-muted">Upload your PDFs later and replace the links below.</p>
+
+      <div class="vh-resource-cards">
+        <a href="#" class="vh-resource-card" style="text-decoration:none; color:inherit; display:block">
+          <h3 style="margin-bottom:6px">Download Company Profile</h3>
+          <p class="vh-muted" style="margin:0">PDF placeholder</p>
+        </a>
+
+        <a href="#" class="vh-resource-card" style="text-decoration:none; color:inherit; display:block">
+          <h3 style="margin-bottom:6px">Download Sample Documentation Pack</h3>
+          <p class="vh-muted" style="margin:0">COA + MOA + SDS placeholders</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- CTA box -->
+    <section class="vh-resource-cta" style="max-width:980px">
+      <h2 style="margin-top:0">Request Compliance Documents</h2>
+      <p class="vh-muted" style="max-width:860px">
+        Share your product list, grade requirement (cosmetic/nutraceutical/food), target market (EU/US/UK/Middle East),
+        and expected annual volume. Our team will share the relevant documentation set and quotation.
+      </p>
+
+      <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:14px">
+        <a href="mailto:Sales@Vaibleherbal.com?subject=Compliance%20Documents%20Request%20-%20Vaible%20Herbal&body=Hi%20Team%2C%0A%0APlease%20share%20COA%2FMOA%2FSDS%20for%20the%20following%20products%3A%0A-%20%5BProduct%201%5D%0A-%20%5BProduct%202%5D%0A%0AGrade%3A%20%5BCosmetic%2FNutraceutical%2FFood%5D%0AMarket%3A%20%5BEU%2FUS%2FUK%5D%0ADestination%3A%20%5BCountry%5D%0AQuantity%3A%20%5B%5D%0A%0AThanks."
+           style="display:inline-block; background:var(--vh-green); color:#fff; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600">
+          Request Documents
+        </a>
+
+        <a href="contact.html"
+           style="display:inline-block; border:1px solid rgba(0,0,0,0.15); padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; color:inherit; background:#fff">
+          Contact Sales
+        </a>
+      </div>
+    </section>
+
   </main>
 
   <footer class="vh-footer">
@@ -74,6 +287,7 @@
   <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
   <script src="js/script.js" defer></script>
   <script src="js/loader.js" defer></script>
+  <script src="js/chatbot-embed.js"></script>
 
 </body>
 </html>

@@ -8,13 +8,11 @@
 </head>
 <body>
   <!-- Page Loader (Vaible Herbal) -->
-<div id="vhLoader" class="vh-loader is-active" aria-live="polite" aria-label="Loading">
-  <div class="vh-loader__inner">
-    <img class="vh-loader__logo" src="images/vaible-herbal-logo.png" alt="Vaible Herbal" width="420" height="120">
+  <div id="vhLoader" class="vh-loader is-active" aria-live="polite" aria-label="Loading">
+    <div class="vh-loader__inner">
+      <img class="vh-loader__logo" src="images/vaible-herbal-logo.png" alt="Vaible Herbal" width="420" height="120">
+    </div>
   </div>
-</div>
-
-
 
   <div class="vh-topbar">
     <div class="vh-topbar__inner">
@@ -31,12 +29,12 @@
 
   <header class="vh-header">
     <div class="vh-header__inner">
-<a class="vh-logo" href="index.html" aria-label="Vaible Herbal">
-  <picture>
-    <source type="image/png" srcset="images/vaible-herbal-logo.png">
-    <img src="images/vaible-herbal-logo.jpg" alt="Vaible Herbal logo" loading="eager" decoding="async">
-  </picture>
-</a>
+      <a class="vh-logo" href="index.html" aria-label="Vaible Herbal">
+        <picture>
+          <source type="image/png" srcset="images/vaible-herbal-logo.png">
+          <img src="images/vaible-herbal-logo.jpg" alt="Vaible Herbal logo" loading="eager" decoding="async">
+        </picture>
+      </a>
 
       <nav id="vhNav" class="vh-nav">
         <ul class="vh-menu">
@@ -60,9 +58,10 @@
     </a>
   </aside>
 
-  <main class="vh-container" style="padding:32px 0 56px">
+  <main class="vh-container vh-contact" style="padding:32px 0 56px">
     <h1>Contact Us</h1>
-    <form action="#" method="post" style="max-width:720px">
+
+    <form class="vh-contact__form" action="#" method="post" style="max-width:720px">
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px">
         <div>
           <label>Name</label>
@@ -83,6 +82,42 @@
       </div>
       <button type="submit" style="margin-top:12px; background:var(--vh-green); color:#fff; border:0; padding:10px 16px; border-radius:8px; cursor:pointer">Send Inquiry</button>
     </form>
+
+    <!-- NEW: Our Facilities (below contact form) -->
+    <section class="vh-facilities" aria-labelledby="vhFacilitiesTitle" style="margin-top:38px; max-width:980px">
+      <h2 id="vhFacilitiesTitle">Our Facilities</h2>
+
+      <div class="vh-facilities__grid">
+        <!-- Delhi -->
+        <article class="vh-facility">
+          <h3>Delhi Office</h3>
+          <p class="vh-facility__addr">
+            Vaible Herbal Pvt. Ltd.<br>
+            <!-- Replace with your exact address line -->
+            New Delhi, India
+          </p>
+          <p class="vh-facility__meta">
+            <a href="mailto:Sales@Vaibleherbal.com">Sales@Vaibleherbal.com</a><br>
+            <a href="tel:+91991154497">+91 9911154497</a>
+          </p>
+        </article>
+
+        <!-- Badarpur -->
+        <article class="vh-facility">
+          <h3>Badarpur Office</h3>
+          <p class="vh-facility__addr">
+            Vaible Herbal Pvt. Ltd.<br>
+            <!-- Replace with your exact address line -->
+            Badarpur, New Delhi, India
+          </p>
+          <p class="vh-facility__meta">
+            <a href="mailto:Sales@Vaibleherbal.com">Sales@Vaibleherbal.com</a><br>
+            <a href="tel:+91991154497">+91 9911154497</a>
+          </p>
+        </article>
+      </div>
+    </section>
+    <!-- /NEW: Our Facilities -->
   </main>
 
   <footer class="vh-footer">
@@ -94,6 +129,7 @@
   <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
   <script src="js/script.js" defer></script>
   <script src="js/loader.js" defer></script>
-
+  <script src="js/chatbot-embed.js"></script>
 </body>
 </html>
+

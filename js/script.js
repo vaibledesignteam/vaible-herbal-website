@@ -269,26 +269,44 @@
     { name: 'United Arab Emirates', lat: 23.4241, lng: 53.8478 },
     { name: 'Spain',                lat: 40.4637, lng: -3.7492 },
     { name: 'Japan',                lat: 36.2048, lng: 138.2529 },
+    { name: "China", lat: 35.8617, lng: 104.1954 },
+  { name: "Nepal", lat: 28.3949, lng: 84.1240 },
+  { name: "Sri Lanka", lat: 7.8731, lng: 80.7718 },
+  { name: "Singapore", lat: 1.3521, lng: 103.8198 },
+  { name: "Bahrain", lat: 26.0667, lng: 50.5577 },
+  { name: "Morocco", lat: 31.7917, lng: -7.0926 },
+  { name: "Hong Kong", lat: 22.3193, lng: 114.1694 },
+  { name: "Malaysia", lat: 4.2105, lng: 101.9758 }
   ];
 
   const map = L.map(mapEl, { scrollWheelZoom:false, worldCopyJump:true, attributionControl:false });
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom:5, minZoom:2 }).addTo(map);
 
-  const pinStyle = { radius:7, color:'#b30000', weight:2, fillColor:'#ff2a2a', fillOpacity:0.9 };
   const group = L.featureGroup().addTo(map);
+const vhPinIcon = L.icon({
+  iconUrl: "images/vaible-pin.png",
+  iconSize: [22, 22],
+  iconAnchor: [11, 22],
+  tooltipAnchor: [0, -18]
+});
 
   COUNTRIES_SERVED.forEach(c=>{
-  L.circleMarker([c.lat, c.lng], {
-    radius: 7, color: '#b30000', weight: 2, fillColor: '#ff2a2a', fillOpacity: 0.9
-  })
+ L.marker([c.lat, c.lng], { icon: vhPinIcon })
   .addTo(group)
   .bindTooltip(c.name, {
-    permanent: true,          // <-- always show
-    direction: 'top',         // top label (you can change to 'right' if preferred)
-    offset: [0, -12],         // lift above the pin
+    permanent: false,
+    direction: "top",
+    offset: [0, -10],
     opacity: 1,
-    className: 'vh-map-label' // custom style
-  });
+    sticky: true,
+    className: "vh-map-label"
+  })
+  .on("mouseover", function () { this.openTooltip(); })
+  .on("mouseout", function () { this.closeTooltip(); })
+  .on("click", function () { this.openTooltip(); });
+
+
+
 });
 
 

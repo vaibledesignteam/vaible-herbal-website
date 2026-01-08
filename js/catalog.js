@@ -7,10 +7,22 @@
   const empty = document.getElementById('empty');
   const azBar = document.getElementById('azBar');
   const searchBox = document.getElementById('searchBox');
+  // Scroll reveal observer for cards
+const revealObserver = new IntersectionObserver((entries, obs) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('reveal--visible');
+      obs.unobserve(entry.target); // animate only once
+    }
+  });
+}, {
+  threshold: 0.18
+});
+
 
   // One fixed image for all cards (change path if you want)
   const DEFAULT_CARD_IMG = 'images/peppermint-oil.png';
-  const ALWAYS_USE_PLACEHOLDER = true; // set to false later to use per-product images
+  const ALWAYS_USE_PLACEHOLDER = false; // set to false later to use per-product images
 
   const CAT_META = {
     'essential-oils': {
@@ -156,24 +168,33 @@
 
   function setBg(el, src) {
     const use = ALWAYS_USE_PLACEHOLDER ? DEFAULT_CARD_IMG : (src || DEFAULT_CARD_IMG);
-    el.style.backgroundImage = `url('${use}')`;
+    el.style.backgroundImage = `url("${use}")`;
+
   }
 
   function render(list) {
-    grid.innerHTML = '';
-    empty.style.display = list.length ? 'none' : 'block';
+  grid.innerHTML = '';
+  empty.style.display = list.length ? 'none' : 'block';
 
-    list.forEach(p => {
-      const art = document.createElement('article');
-      art.className = 'vh-card-mini';
-      art.dataset.slug = p.slug;
-      art.style.cursor = 'pointer';
+  list.forEach((p, i) => { 
+    const art = document.createElement('article');
+    art.className = 'vh-card-mini reveal';   // 👈 add reveal class
+    art.dataset.slug = p.slug;
+    art.style.cursor = 'pointer';
 
-      const img = document.createElement('div');
-      img.className = 'vh-card-mini__img';
-      setBg(img, p.image1);
-      // Removed: img.title = 'Quick View';
-      art.appendChild(img);
+    // stagger delay: 0ms, 60ms, 120ms, ...
+    art.style.setProperty('--reveal-delay', `${i * 60}ms`);
+
+    // attach to observer so it animates when it enters view
+    revealObserver.observe(art);
+
+    const img = document.createElement('div');
+    img.className = 'vh-card-mini__img';
+    setBg(img, p.image1);
+    art.appendChild(img);
+
+    // ...rest of your card code...
+
 
       const body = document.createElement('div');
       body.className = 'vh-card-mini__body';
@@ -231,3 +252,16 @@
     });
   }
 })();
+// Put this near the bottom of catalog.js or a main JS file
+document.addEventListener('DOMContentLoaded', () => {
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('reveal--visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+});
